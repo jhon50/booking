@@ -1,0 +1,16 @@
+= link_to 'Book new seat', new_booking_path, class: 'btn btn-primary new-book'
+
+table(class="table table-striped")
+  tr
+    th Name
+    th Desk
+    th From/To
+    th
+
+  - @bookings.each do |booking|
+    tr
+      td = booking.user.name
+      td = booking.desk
+      td = "#{booking.from.strftime("%d %b")} - #{booking.to.strftime("%d %b")}"
+      td = link_to 'View', booking_path(booking)
+

@@ -1,0 +1,6 @@
+p = "Name: #{@booking.user.name}"
+p = "Email: #{@booking.user.email}"
+p = "Desk: #{@booking.desk}"
+p = "Date: #{@booking.from} - #{@booking.to}"
+
+= link_to 'Back', bookings_path, class: 'btn btn-primary'

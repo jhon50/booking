@@ -1,0 +1,30 @@
+<%= form_for @booking, url: bookings_path do |f| %>
+  <div class="form-group">
+    <%= f.label 'Select your seat:' %>
+    <%= f.select :desk, @available_seats, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-3">
+      <%= f.text_field :from, class: 'datepicker form-control', placeholder: 'From' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-3">
+      <%= f.text_field :to, class: 'datepicker form-control', placeholder: 'To' %>
+    </div>
+  </div>
+
+  <%= f.submit 'Book', class: 'btn btn-primary'%>
+<% end %>
+
+<%= javascript_tag do %>
+  var data = <%= @disabled_dates.to_json.html_safe %>
+  $(document).ready(function () {
+    $('.datepicker').datepicker({
+      format: 'yyyy-mm-dd',
+      datesDisabled: data
+    });
+  });
+<% end %>
