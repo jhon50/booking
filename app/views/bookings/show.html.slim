@@ -4,3 +4,4 @@ p = "Desk: #{@booking.desk}"
 p = "Date: #{@booking.from} - #{@booking.to}"
 
 = link_to 'Back', bookings_path, class: 'btn btn-primary'
+= link_to 'Cancel', booking_path(@booking), method: :delete, class: 'btn btn-primary'

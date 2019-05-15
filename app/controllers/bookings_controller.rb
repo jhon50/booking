@@ -25,6 +25,12 @@ class BookingsController < ApplicationController
     @booking = Bookingg.find(params[:id])
   end
 
+  def destroy
+    Bookingg.find(params[:id]).destroy!
+
+    redirect_to bookings_path
+  end
+
   private
 
   def booking_params
